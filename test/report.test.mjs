@@ -64,6 +64,26 @@ test("formatReport：not_model → 引导性原因", () => {
   assert.match(text, /不像语言模型写的整数|Program-generated|程序/)
 })
 
+test("formatReport：0 有效样本时托出样本级错误（网关 4xx 等）", () => {
+  const empty = {
+    schema: "fpd-detection-v1",
+    requested_rounds: 1,
+    completed_rounds: 1,
+    bank: { models: 70 },
+    rounds: [{
+      index: 0, error: "No valid samples. This round cannot be scored.",
+      samples: [{ state: "failed", error: "HTTP 404: Rina: InferX is switched off in Magpie" }],
+    }],
+    analysis: {},
+  }
+  const text = formatReport(
+    { data: empty, elapsedMs: 2700, timedOut: false },
+    { claimed: "rina/deepseek-v4.1-flash-1017", baseUrl: "http://127.0.0.1:3425/v1", protocol: "chat" },
+  )
+  assert.match(text, /未能形成有效排名/)
+  assert.match(text, /HTTP 404: Rina: InferX is switched off/)
+})
+
 test("hostOf：坏 URL → unknown", () => {
   assert.equal(hostOf("https://api.example.com/v1"), "api.example.com")
   assert.equal(hostOf("not a url"), "unknown")
