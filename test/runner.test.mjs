@@ -49,6 +49,20 @@ test("runDetection：deadline 到点 kill，返回超时错误", async () => {
   assert.match(res.error, /超时/)
 })
 
+test("runDetection：孙进程占住管道时仍能在 deadline+宽限内返回", async () => {
+  const t0 = Date.now()
+  const res = await runDetection({
+    baseUrl: "http://127.0.0.1:1/v1", apiKey: "sk-x", model: "m",
+    fpdPath: path.join(here, "fixtures", "fake-fpd-tree.mjs"),
+    deadlineMs: 400,
+  })
+  const wall = Date.now() - t0
+  assert.equal(res.ok, false)
+  assert.equal(res.timedOut, true)
+  assert.match(res.error, /超时/)
+  assert.ok(wall < 8000, `应在 ${wall}ms 内返回（硬兜底 2s 宽限）`)
+})
+
 test("runDetection：退出码非零且无 JSON → 失败并带原因", async () => {
   const res = await runDetection({
     baseUrl: "http://127.0.0.1:1/v1", apiKey: "sk-x", model: "m",
