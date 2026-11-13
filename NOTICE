@@ -1,0 +1,27 @@
+NOTICE — magpie-llm-detector
+============================
+
+This plugin is an integration layer only. The detection algorithm, the model
+reference bank, and the `fpd` CLI it shells out to come from:
+
+  lm-detector (LM Fingerpoint Detector)
+  https://github.com/Ikaleio/lm-detector
+  npm package: lmfpd
+  Copyright (c) Ikaleio — MIT License (https://opensource.org/licenses/MIT)
+
+  Upstream also credits xqy2006/ModelTrace for the original algorithm ideas
+  and part of the raw data:
+  https://github.com/xqy2006/ModelTrace
+
+The npm dependency `lmfpd` remains MIT-licensed by its author; this NOTICE
+does not modify its terms.
+
+Test fixtures only (not published to npm):
+  test/fixtures/mock-seed-texts.json contains three raw attempt texts taken
+  from the upstream repository's public collection
+  data/collections/claude-haiku-5.5-openrouter-anthropic-low-20261008/
+  (Ikaleio/lm-detector, MIT), used by the local mock endpoint so the
+  end-to-end test passes the detector's sequence-shape check without any
+  external API requests.
+
+magpie-llm-detector itself: Copyright (c) 2026 aqiu817 — MIT License.

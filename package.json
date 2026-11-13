@@ -1,0 +1,48 @@
+{
+  "name": "magpie-llm-detector",
+  "version": "0.1.0",
+  "description": "magpie tool plugin: verify which LLM actually serves an endpoint, via model fingerprint detection (powered by lm-detector/lmfpd)",
+  "type": "module",
+  "main": "./index.mjs",
+  "files": [
+    "index.mjs",
+    "lib",
+    "icon.svg",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "magpie",
+    "magpie-plugin",
+    "llm",
+    "fingerprint",
+    "detector"
+  ],
+  "license": "MIT",
+  "author": "aqiu817",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aqiu817/magpie-llm-detector"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.mjs\""
+  },
+  "magpie": {
+    "icon": "icon.svg",
+    "name": "LLM Detector",
+    "summary": {
+      "en": "Model fingerprint detection for every agent: ask an endpoint's model to write a few hundred integers, match the distribution against a reference bank, and see which model is really behind the API. Powered by lm-detector (lmfpd).",
+      "zh": "给每个 agent 的模型指纹检测：让端点的模型随手写几百个整数，与参考库比对分布，看清 API 背后真正是哪个模型。基于 lm-detector（lmfpd）。"
+    }
+  },
+  "dependencies": {
+    "lmfpd": "^0.0.1794509655417"
+  }
+}

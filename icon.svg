@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6b73c"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#171425"/>
+  <!-- 扫描框角标：检测之意 -->
+  <g fill="none" stroke="#f6b73c" stroke-width="2.6" stroke-linecap="round" opacity="0.9">
+    <path d="M9 19v-6a4 4 0 0 1 4-4h6"/>
+    <path d="M45 9h6a4 4 0 0 1 4 4v6"/>
+    <path d="M55 45v6a4 4 0 0 1-4 4h-6"/>
+    <path d="M19 55h-6a4 4 0 0 1-4-4v-6"/>
+  </g>
+  <!-- 指纹弧线 -->
+  <g fill="none" stroke="url(#g)" stroke-width="3" stroke-linecap="round">
+    <path d="M32 16c-9.9 0-17 7.2-17 16.6 0 3.6.6 7 1.8 10.2"/>
+    <path d="M32 16c9.9 0 17 7.2 17 16.6 0 4.4-.9 8.6-2.6 12.3"/>
+    <path d="M21.5 40.5c0-7.6 4.4-12.4 10.5-12.4s10.5 4.8 10.5 12.4c0 3.2-.5 6.2-1.5 9"/>
+    <path d="M26.5 42c0-4.8 2.3-7.8 5.5-7.8s5.5 3 5.5 7.8c0 2.9-.4 5.6-1.2 8.1"/>
+    <path d="M32 34.2v6.2"/>
+  </g>
+  <circle cx="32" cy="47.5" r="1.9" fill="#f6b73c"/>
+</svg>

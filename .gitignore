@@ -1,0 +1,9 @@
+node_modules/
+*.log
+.env
+.env.*
+.DS_Store
+PLAN.md
+state*.json
+*.local.json
+.research/
